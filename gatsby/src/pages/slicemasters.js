@@ -1,5 +1,10 @@
 import React from 'react';
+import { Nav } from '../components/Nav';
 
-const SliceMastersPage = () => <div>Hello</div>;
+const SliceMastersPage = () => (
+  <div>
+    <Nav />
+  </div>
+);
 
 export default SliceMastersPage;
