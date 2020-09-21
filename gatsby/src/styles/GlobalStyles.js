@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
     background-size: 450px;
     background-attachment: fixed;
     font-size: 10px;
+    
   }
 
   body {
