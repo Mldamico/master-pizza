@@ -1,5 +1,6 @@
 import React from 'react';
+import { Layout } from '../components/Layout';
 
-const FourOFour = () => <p>Hey - That page doesn't exists</p>;
+const FourOFour = () => <>Hey - That page doesn't exists</>;
 
 export default FourOFour;

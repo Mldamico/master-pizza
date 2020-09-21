@@ -1,5 +1,6 @@
 import React from 'react';
+import { Layout } from '../components/Layout';
 
-const OrderPage = () => <div>Hello</div>;
+const OrderPage = () => <>Hello</>;
 
 export default OrderPage;

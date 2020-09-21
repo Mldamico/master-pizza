@@ -1,5 +1,6 @@
 import React from 'react';
+import { Layout } from '../components/Layout';
 
-const BeersPage = () => <div>Hello</div>;
+const BeersPage = () => <>Hello</>;
 
 export default BeersPage;

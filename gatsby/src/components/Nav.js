@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-export function nav() {
+export function Nav() {
   return (
     <nav>
       <ul>
