@@ -17,6 +17,7 @@ const NavStyles = styled.nav`
     align-items: center;
     text-align: center;
     list-style: none;
+    margin-top: -6rem;
   }
 
   li {
@@ -44,6 +45,9 @@ const NavStyles = styled.nav`
     &:hover {
       color: var(--red);
     }
+    /* &[aria-current='page'] {
+      color: var(--red);
+    } */
   }
 `;
 
