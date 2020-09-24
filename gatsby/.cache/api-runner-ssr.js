@@ -1,4 +1,10 @@
 var plugins = [{
+      plugin: require('/Users/matias/Downloads/gatsby-pizza/gatsby/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/matias/Downloads/gatsby-pizza/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
+      options: {"plugins":[],"projectId":"5t9ucwr3","dataset":"production","watchMode":true,"token":"sk6zZcqVu4NObdcoqMxCQByyiit2SFIstmONfb8d3Gw1ut6397FSQtrpnd7KxIDakBpgNb3GpYVCxALmMiXIAUcBSDCDa2QDOp3AXdiFmHFTfNohVuGoisCsstzTcn6AUN97MLvAbJEtlTANgO7921CDrUXtovsyUdcEXCxOgg2c32XbCljc"},
+    },{
       plugin: require('/Users/matias/Downloads/gatsby-pizza/gatsby/gatsby-ssr'),
       options: {"plugins":[]},
     }]
