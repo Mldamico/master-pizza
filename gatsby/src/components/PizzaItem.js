@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import Img from 'gatsby-image';
 
 export const PizzaItem = ({ pizza }) => {
   console.log(pizza);
@@ -10,6 +11,7 @@ export const PizzaItem = ({ pizza }) => {
           <span className='mark'>{pizza.name}</span>
         </h2>
         <p>{pizza.toppings.map((topping) => topping.name).join(', ')}</p>
+        <Img fluid={pizza.image.asset.fluid} alt={pizza.name} />
       </Link>
     </div>
   );
