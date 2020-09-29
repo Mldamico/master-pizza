@@ -7,8 +7,10 @@ export default {
     title: `Gatsby Pizza`,
     siteUrl: 'http://gatsby.pizza-master',
     description: 'Best pizza',
+    twitter: '@slickSlices',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-sanity',
