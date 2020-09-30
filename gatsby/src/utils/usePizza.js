@@ -32,7 +32,7 @@ export const usePizza = ({ pizzas, values }) => {
     };
 
     const res = await fetch(
-      `${process.env.GATSBY_SERVERLESS_BASE}/placeholder`,
+      `${process.env.GATSBY_SERVERLESS_BASE}/placeOrder`,
       {
         method: 'POST',
         headers: {
