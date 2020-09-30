@@ -1,11 +1,13 @@
-import React from 'react';
-import { SEO } from '../components/SEO';
-import styled from 'styled-components';
-import { useForm } from '../utils/useForm';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import React from 'react';
+import { SEO } from '../components/SEO';
+import { MenuItemStyles } from '../styles/MenuItemStyles';
+import { OrderStyles } from '../styles/OrderStyles';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
+import { useForm } from '../utils/useForm';
+
 const OrderPage = ({ data }) => {
   const { values, updateValue } = useForm({
     name: '',
@@ -15,7 +17,7 @@ const OrderPage = ({ data }) => {
   return (
     <>
       <SEO title='Order a Pizza!' />
-      <form>
+      <OrderStyles>
         <fieldset>
           <legend>Your Info</legend>
           <label htmlFor='name'>
@@ -39,10 +41,10 @@ const OrderPage = ({ data }) => {
             />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset className='menu'>
           <legend>Menu</legend>
           {pizzas.map((pizza) => (
-            <div key={pizza.id}>
+            <MenuItemStyles key={pizza.id}>
               <Img
                 width='50'
                 height='50'
@@ -59,13 +61,13 @@ const OrderPage = ({ data }) => {
                   </button>
                 ))}
               </div>
-            </div>
+            </MenuItemStyles>
           ))}
         </fieldset>
-        <fieldset>
+        <fieldset className='order'>
           <legend>Order</legend>
         </fieldset>
-      </form>
+      </OrderStyles>
     </>
   );
 };
