@@ -1,12 +1,14 @@
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+import { PizzaOrder } from '../components/PizzaOrder';
 import { SEO } from '../components/SEO';
 import { MenuItemStyles } from '../styles/MenuItemStyles';
 import { OrderStyles } from '../styles/OrderStyles';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
 import { useForm } from '../utils/useForm';
+import { usePizza } from '../utils/usePizza';
 
 const OrderPage = ({ data }) => {
   const { values, updateValue } = useForm({
@@ -14,32 +16,34 @@ const OrderPage = ({ data }) => {
     email: '',
   });
   const pizzas = data.pizzas.nodes;
+  const { order, addToOrder, removeFromOrder } = usePizza({
+    pizzas,
+    inputs: values,
+  });
+
   return (
     <>
       <SEO title='Order a Pizza!' />
       <OrderStyles>
         <fieldset>
           <legend>Your Info</legend>
-          <label htmlFor='name'>
-            Name
-            <input
-              type='text'
-              name='name'
-              id='name'
-              value={values.name}
-              onChange={updateValue}
-            />
-          </label>
-          <label htmlFor='email'>
-            Email
-            <input
-              type='email'
-              name='email'
-              id='email'
-              value={values.email}
-              onChange={updateValue}
-            />
-          </label>
+          <label htmlFor='name'>Name</label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            value={values.name}
+            onChange={updateValue}
+          />
+
+          <label htmlFor='email'>Email</label>
+          <input
+            type='email'
+            name='email'
+            id='email'
+            value={values.email}
+            onChange={updateValue}
+          />
         </fieldset>
         <fieldset className='menu'>
           <legend>Menu</legend>
@@ -56,7 +60,11 @@ const OrderPage = ({ data }) => {
               </div>
               <div>
                 {['S', 'M', 'L'].map((size) => (
-                  <button type='button' key={size}>
+                  <button
+                    type='button'
+                    key={size}
+                    onClick={() => addToOrder({ id: pizza.id, size })}
+                  >
                     {size} {formatMoney(calculatePizzaPrice(pizza.price, size))}
                   </button>
                 ))}
@@ -66,6 +74,11 @@ const OrderPage = ({ data }) => {
         </fieldset>
         <fieldset className='order'>
           <legend>Order</legend>
+          <PizzaOrder
+            order={order}
+            removeFromOrder={removeFromOrder}
+            pizzas={pizzas}
+          />
         </fieldset>
       </OrderStyles>
     </>
