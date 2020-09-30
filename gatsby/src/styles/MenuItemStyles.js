@@ -8,7 +8,7 @@ export const MenuItemStyles = styled.div`
   align-content: center;
   align-items: center;
   position: relative;
-
+  margin: 1rem 0;
   .gatsby-image-wrapper {
     grid-row: span 2;
     height: 100%;
@@ -22,7 +22,6 @@ export const MenuItemStyles = styled.div`
   button + button {
     margin-left: 1rem;
   }
-
   .remove {
     background: none;
     color: var(--red);
