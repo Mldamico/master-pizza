@@ -15,6 +15,7 @@ const OrderPage = ({ data }) => {
   const { values, updateValue } = useForm({
     name: '',
     email: '',
+    maple: '',
   });
   const pizzas = data.pizzas.nodes;
   const {
@@ -56,6 +57,14 @@ const OrderPage = ({ data }) => {
             id='email'
             value={values.email}
             onChange={updateValue}
+          />
+          <input
+            type='maple'
+            name='maple'
+            id='maple'
+            value={values.maple}
+            onChange={updateValue}
+            className='maple'
           />
         </fieldset>
         <fieldset className='menu' disabled={loading}>

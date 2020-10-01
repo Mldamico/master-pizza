@@ -29,6 +29,7 @@ export const usePizza = ({ pizzas, values }) => {
       total: formatMoney(calculateOrderTotal(order, pizzas)),
       name: values.name,
       email: values.email,
+      maple: values.maple,
     };
 
     const res = await fetch(

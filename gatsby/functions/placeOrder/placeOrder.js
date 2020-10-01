@@ -39,6 +39,12 @@ function wait(ms = 0) {
 exports.handler = async (event, context) => {
   // await wait(5000);
   const body = JSON.parse(event.body);
+  if (body.maple) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Error 34444' }),
+    };
+  }
   const requiredFields = ['email', 'name', 'order'];
   for (const field of requiredFields) {
     if (!body[field]) {
