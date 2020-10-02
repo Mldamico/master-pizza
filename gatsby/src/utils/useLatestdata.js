@@ -1,5 +1,19 @@
 import { useEffect, useState } from 'react';
 
+const gql = String.raw;
+
+const deets = `
+    name
+    _id
+    image {
+      asset {
+        url
+        metadata {
+          lqip
+        }
+      }
+    }
+`;
 export const useLatestdata = () => {
   const [hotSlices, setHotSlices] = useState();
   const [slicemasters, setSlicemasters] = useState();
@@ -11,25 +25,29 @@ export const useLatestdata = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: `
-        query {
-          StoreSettings(id: "downtown"){
-            name
-            sliceMaster{
+        query: gql`
+          query {
+            StoreSettings(id: "downtown") {
               name
-            }
-            hotSlices{
-              name
+              sliceMaster {
+                ${deets}
+              }
+
+              hotSlices {
+                ${deets}
+              }
             }
           }
-        }
-          `,
+        `,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
         setHotSlices(res.data.StoreSettings.hotSlices);
         setSlicemasters(res.data.StoreSettings.sliceMaster);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
