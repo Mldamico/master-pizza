@@ -72,7 +72,6 @@ exports.handler = async (event, context) => {
     subject: 'New Order!',
     html: generateOrderEmail({ order: body.order, total: body.total }),
   });
-  console.log(info);
   return {
     statusCode: 200,
     body: JSON.stringify({ message: 'Success' }),

@@ -20,7 +20,6 @@ const PizzaStyles = styled.div`
   }
 `;
 export const PizzaItem = ({ pizza }) => {
-  console.log(pizza);
   return (
     <PizzaStyles>
       <Link to={`/pizza/${pizza.slug.current}`}>
